@@ -41,7 +41,7 @@ app.get('/usuarios', async (req, res) => {
 
 
 app.put("/usuarios/:id", async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
 
     try {
         const updatedUser = await prisma.user.update({
@@ -59,7 +59,7 @@ app.put("/usuarios/:id", async (req, res) => {
 });
 
 app.delete("/usuarios/:id", async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
 
     try {
         await prisma.user.delete({ where: { id } });
